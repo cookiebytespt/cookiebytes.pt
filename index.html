@@ -1,62 +1,312 @@
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CookieBytes.pt - Under Construction</title>
-    <style>
-      html, body {
-        height: 100%;
-      }
-      body {
-        background-color: #fff;
-        background: radial-gradient(circle at center, #fff 0%, #f8f8f8 75%, #ebebeb 100%);
-        color: #222;
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-        font-size: 1rem;
-        line-height: 1.5;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      main {
-        padding: 1rem;
-        text-align: center;
-      }
-      h1 {
-        font-size: 2.5rem;
-        line-height: 1.1;
-        margin: 0;
-      }
-      @media screen and (max-width: 480px) {
-        h1 {
-          font-size: 1.5rem;
-        }
-      }
-      h1::after {
-        content: "";
-        background-color: #ffe800;
-        background: repeating-linear-gradient(45deg, #ffe800, #ffe800 0.5rem, #222 0.5rem, #222 1.0rem);
-        display: block;
-        height: 0.5rem;
-        margin-top: 1rem;
-      }
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-      p {
-        margin: 1rem 0 0 0;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>CookieBytes.pt</h1>
-      <p>Our website is under construction.</p>
-    </main>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CookieBytes</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FDF6EC; --cookie: #C97B3A; --cookie-dark: #8B4F1A; --cookie-light: #F0C98A;
+    --chip: #2D1E0F; --byte: #1A6B5C; --byte-light: #D4EDEA; --byte-bright: #26A88D;
+    --soft-white: #FFF9F2; --text-main: #1C130A; --text-muted: #7A5C3E; --border: rgba(201,123,58,0.18);
+    --rocky: #6B3FA0; --peggy: #B5477A;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--text-main); overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 3rem; background: rgba(253,246,236,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; gap: 0.6rem; font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.45rem; color: var(--chip); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+  .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-muted); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--cookie); }
+  .nav-cta { background: var(--chip) !important; color: var(--cream) !important; padding: 0.5rem 1.3rem !important; border-radius: 2rem !important; font-weight: 600 !important; transition: background 0.2s, transform 0.15s !important; }
+  .nav-cta:hover { background: var(--cookie-dark) !important; transform: translateY(-1px); }
+
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 4rem; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(201,123,58,0.12) 0%, transparent 70%), radial-gradient(circle at 15% 20%, rgba(240,201,138,0.18) 0%, transparent 40%), radial-gradient(circle at 85% 15%, rgba(38,168,141,0.08) 0%, transparent 35%); }
+  .floating-cookies { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .fc { position: absolute; opacity: 0.12; animation: floatUp linear infinite; }
+  @keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 10% { opacity: 0.12; } 90% { opacity: 0.12; } 100% { transform: translateY(-100px) rotate(20deg); opacity: 0; } }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(3.2rem, 8vw, 6.5rem); font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; color: var(--chip); max-width: 820px; position: relative; z-index: 1; margin-bottom: 1.6rem; animation: fadeSlideIn 0.7s 0.1s ease both; }
+  .hero h1 em { font-style: normal; color: var(--cookie); position: relative; }
+  .hero h1 em::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; background: var(--cookie-light); border-radius: 2px; }
+  .hero-sub { font-size: 1.15rem; font-weight: 300; line-height: 1.65; color: var(--text-muted); max-width: 520px; position: relative; z-index: 1; margin-bottom: 2.8rem; animation: fadeSlideIn 0.7s 0.2s ease both; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 1; animation: fadeSlideIn 0.7s 0.3s ease both; }
+  .btn-primary { background: var(--cookie); color: white; padding: 0.85rem 2.2rem; border-radius: 3rem; font-size: 0.95rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 4px 18px rgba(201,123,58,0.35); }
+  .btn-primary:hover { background: var(--cookie-dark); transform: translateY(-2px); }
+  .btn-secondary { background: transparent; color: var(--chip); padding: 0.85rem 2.2rem; border-radius: 3rem; font-size: 0.95rem; font-weight: 500; text-decoration: none; border: 1.5px solid var(--border); cursor: pointer; transition: border-color 0.2s, color 0.2s, transform 0.15s; }
+  .btn-secondary:hover { border-color: var(--cookie); color: var(--cookie); transform: translateY(-2px); }
+  .dog-strip { position: relative; z-index: 1; margin-top: 4.5rem; display: flex; align-items: center; gap: 1rem; background: var(--soft-white); border: 1px solid var(--border); border-radius: 2rem; padding: 0.75rem 1.5rem; font-size: 0.85rem; color: var(--text-muted); animation: fadeSlideIn 0.7s 0.4s ease both; }
+  .dog-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--chip); display: flex; align-items: center; justify-content: center; }
+
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; color: var(--cookie); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.9rem; }
+  .section-title { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--chip); line-height: 1.15; letter-spacing: -0.02em; max-width: 600px; margin-bottom: 1.2rem; }
+  .section-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.7; max-width: 500px; margin-bottom: 3rem; }
+
+  .services-bg { background: var(--soft-white); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+  .service-card { background: white; border: 1px solid var(--border); border-radius: 1.5rem; padding: 2rem 1.75rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: default; }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(201,123,58,0.12); border-color: var(--cookie-light); }
+  .service-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 1.2rem; }
+  .service-card h3 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; color: var(--chip); margin-bottom: 0.6rem; }
+  .service-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+  .about-intro { max-width: 640px; margin-bottom: 3.5rem; }
+  .crew-divider { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+  .crew-divider span { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; color: var(--text-muted); }
+  .crew-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .crew-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+  @media (max-width: 900px) { .crew-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px) { .crew-grid { grid-template-columns: repeat(2, 1fr); } nav { padding: 1rem 1.5rem; } .nav-links { display: none; } }
+  .crew-card { border-radius: 1.75rem; padding: 1.8rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+  .crew-card::before { content: ''; position: absolute; top: -40px; right: -40px; width: 130px; height: 130px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+  .crew-card.cookie-card { background: var(--chip); }
+  .crew-card.billy-card { background: var(--byte); }
+  .crew-card.rocky-card { background: var(--rocky); }
+  .crew-card.peggy-card { background: var(--peggy); }
+  .crew-emoji { font-size: 3.2rem; display: block; margin-bottom: 0.9rem; position: relative; z-index: 1; }
+  .cookie-card .crew-emoji { animation: wagTail 3s ease infinite; }
+  .billy-card .crew-emoji { animation: billyBounce 1.2s ease infinite; }
+  .rocky-card .crew-emoji { animation: rockyPounce 1s ease infinite; }
+  .peggy-card .crew-emoji { animation: peggyBlink 5s ease infinite; }
+  @keyframes wagTail { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+  @keyframes billyBounce { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-8px) rotate(5deg); } }
+  @keyframes rockyPounce { 0%, 100% { transform: translateY(0) rotate(8deg) scale(1); } 50% { transform: translateY(-10px) rotate(-8deg) scale(1.1); } }
+  @keyframes peggyBlink { 0%, 90%, 100% { transform: scale(1); } 95% { transform: scaleY(0.85); } }
+  .crew-card h3 { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.35rem; color: var(--cream); position: relative; z-index: 1; margin-bottom: 0.4rem; }
+  .crew-card p { font-size: 0.82rem; color: rgba(253,246,236,0.58); position: relative; z-index: 1; line-height: 1.55; }
+  .crew-chip { display: inline-block; margin-top: 0.9rem; color: white; font-family: 'DM Mono', monospace; font-size: 0.67rem; padding: 0.25rem 0.8rem; border-radius: 1rem; position: relative; z-index: 1; letter-spacing: 0.06em; background: rgba(255,255,255,0.18); }
+  .cookie-card .crew-chip { background: var(--cookie); }
+  .stat-solo { margin-top: 3rem; text-align: center; }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 900; color: var(--cookie); line-height: 1; }
+  .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+  .cta-section { padding: 6rem 2rem; }
+  .cta-box { background: var(--cookie); border-radius: 2.5rem; padding: 4rem 3.5rem; position: relative; overflow: hidden; }
+  .cta-box::before { content: '🍪'; position: absolute; font-size: 16rem; opacity: 0.05; top: -3rem; right: -3rem; line-height: 1; pointer-events: none; }
+  .cta-top { text-align: center; margin-bottom: 2.8rem; }
+  .cta-top h2 { font-family: 'Fraunces', serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3.2rem); color: white; margin-bottom: 0.7rem; letter-spacing: -0.02em; }
+  .cta-top p { color: rgba(255,255,255,0.75); font-size: 1rem; }
+
+  .cta-form { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 1.75rem; padding: 2rem 2rem 1.75rem; max-width: 640px; margin: 0 auto; backdrop-filter: blur(4px); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } .cta-box { padding: 2.5rem 1.5rem; } }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.85); letter-spacing: 0.04em; }
+  .form-group input, .form-group textarea { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: var(--chip); background: rgba(255,255,255,0.92); border: 1.5px solid transparent; border-radius: 0.85rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; resize: none; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--cookie-dark); box-shadow: 0 0 0 3px rgba(255,255,255,0.2); }
+  .form-group textarea { min-height: 100px; }
+  .captcha-box { background: rgba(255,255,255,0.92); border: 1.5px solid transparent; border-radius: 0.85rem; padding: 0.85rem 1rem; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; cursor: pointer; transition: border-color 0.2s; user-select: none; }
+  .captcha-box:hover { border-color: rgba(255,255,255,0.5); }
+  .captcha-left { display: flex; align-items: center; gap: 0.75rem; }
+  .captcha-checkbox { width: 22px; height: 22px; border-radius: 4px; border: 2px solid #ccc; background: white; display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; flex-shrink: 0; }
+  .captcha-checkbox.checked { background: var(--byte); border-color: var(--byte); }
+  .captcha-checkbox svg { display: none; }
+  .captcha-checkbox.checked svg { display: block; }
+  .captcha-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+  .captcha-right { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+  .captcha-logo { font-size: 1.3rem; line-height: 1; }
+  .captcha-brand { font-family: 'DM Mono', monospace; font-size: 0.52rem; color: var(--text-muted); letter-spacing: 0.05em; }
+  .form-submit { width: 100%; background: var(--chip); color: white; border: none; border-radius: 3rem; padding: 0.9rem; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+  .form-submit:hover { background: #1a0e05; transform: translateY(-1px); }
+  .form-submit:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+  .form-success { display: none; text-align: center; padding: 1.5rem 1rem; }
+  .form-success.visible { display: block; }
+  .form-success-emoji { font-size: 3rem; display: block; margin-bottom: 0.8rem; animation: wagTail 2s ease infinite; }
+  .form-success h3 { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.4rem; color: white; margin-bottom: 0.5rem; }
+  .form-success p { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+
+  .cta-divider { display: flex; align-items: center; gap: 1rem; margin: 2rem auto 1.2rem; max-width: 640px; }
+  .cta-divider::before, .cta-divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.25); }
+  .cta-divider span { font-size: 0.82rem; color: rgba(255,255,255,0.6); white-space: nowrap; }
+  .cta-email-wrap { display: flex; justify-content: center; }
+  .cta-email-pill { display: inline-flex; align-items: center; gap: 0.6rem; background: white; border-radius: 3rem; padding: 0.75rem 1.6rem; font-size: 0.95rem; font-weight: 700; color: var(--cookie-dark); text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.12); transition: transform 0.15s, box-shadow 0.2s; }
+  .cta-email-pill:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.18); }
+  .cta-email-pill span { font-size: 1.1rem; }
+
+  footer { background: var(--chip); padding: 3rem 2rem 2rem; text-align: center; }
+  .footer-logo { display: flex; align-items: center; justify-content: center; gap: 0.6rem; font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.6rem; color: var(--cream); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .footer-tagline { font-size: 0.82rem; color: rgba(253,246,236,0.4); font-family: 'DM Mono', monospace; letter-spacing: 0.05em; margin-bottom: 1.5rem; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; list-style: none; margin-bottom: 2rem; }
+  .footer-links a { font-size: 0.85rem; color: rgba(253,246,236,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--cookie-light); }
+  .footer-copy { font-size: 0.78rem; color: rgba(253,246,236,0.2); }
+  @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <defs><mask id="n1"><rect width="80" height="80" fill="white"/><ellipse cx="56" cy="10" rx="6" ry="7" fill="black"/><ellipse cx="67" cy="13" rx="5.5" ry="6.5" fill="black"/><ellipse cx="75" cy="22" rx="5" ry="6" fill="black"/><ellipse cx="60" cy="22" rx="6" ry="7" fill="black"/><ellipse cx="71" cy="30" rx="5" ry="6" fill="black"/></mask></defs>
+      <g mask="url(#n1)"><circle cx="40" cy="40" r="36" fill="#C97B3A"/><circle cx="40" cy="40" r="30" fill="#D4893F"/><circle cx="26" cy="34" r="4.5" fill="#7A3E10"/><circle cx="46" cy="32" r="3.5" fill="#7A3E10"/><circle cx="52" cy="50" r="4" fill="#7A3E10"/><circle cx="32" cy="52" r="3" fill="#7A3E10"/><circle cx="44" cy="56" r="3.5" fill="#7A3E10"/><circle cx="22" cy="50" r="2.5" fill="#7A3E10"/><circle cx="36" cy="44" r="3" fill="#7A3E10"/></g>
+    </svg>
+    CookieBytes
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="floating-cookies">
+    <span class="fc" style="left:8%;top:70%;animation-duration:18s;animation-delay:0s;"><svg width="40" height="40" viewBox="0 0 80 80"><defs><mask id="fb1"><rect width="80" height="80" fill="white"/><ellipse cx="56" cy="10" rx="6" ry="7" fill="black"/><ellipse cx="67" cy="13" rx="5.5" ry="6.5" fill="black"/><ellipse cx="75" cy="22" rx="5" ry="6" fill="black"/><ellipse cx="60" cy="22" rx="6" ry="7" fill="black"/><ellipse cx="71" cy="30" rx="5" ry="6" fill="black"/></mask></defs><g mask="url(#fb1)"><circle cx="40" cy="40" r="36" fill="#C97B3A"/><circle cx="40" cy="40" r="30" fill="#D4893F"/><circle cx="26" cy="34" r="4" fill="#7A3E10"/><circle cx="46" cy="32" r="3" fill="#7A3E10"/><circle cx="52" cy="50" r="3.5" fill="#7A3E10"/><circle cx="32" cy="52" r="2.5" fill="#7A3E10"/></g></svg></span>
+    <span class="fc" style="left:85%;top:75%;animation-duration:22s;animation-delay:4s;"><svg width="48" height="48" viewBox="0 0 80 80"><defs><mask id="fb2"><rect width="80" height="80" fill="white"/><ellipse cx="56" cy="10" rx="6" ry="7" fill="black"/><ellipse cx="67" cy="13" rx="5.5" ry="6.5" fill="black"/><ellipse cx="75" cy="22" rx="5" ry="6" fill="black"/><ellipse cx="60" cy="22" rx="6" ry="7" fill="black"/><ellipse cx="71" cy="30" rx="5" ry="6" fill="black"/></mask></defs><g mask="url(#fb2)"><circle cx="40" cy="40" r="36" fill="#C97B3A"/><circle cx="40" cy="40" r="30" fill="#D4893F"/><circle cx="26" cy="34" r="4" fill="#7A3E10"/><circle cx="50" cy="28" r="3" fill="#7A3E10"/><circle cx="52" cy="50" r="3.5" fill="#7A3E10"/><circle cx="32" cy="52" r="2.5" fill="#7A3E10"/></g></svg></span>
+    <span class="fc" style="left:22%;top:82%;animation-duration:15s;animation-delay:2s;"><svg width="28" height="28" viewBox="0 0 80 80"><defs><mask id="fb3"><rect width="80" height="80" fill="white"/><ellipse cx="56" cy="10" rx="6" ry="7" fill="black"/><ellipse cx="67" cy="13" rx="5.5" ry="6.5" fill="black"/><ellipse cx="75" cy="22" rx="5" ry="6" fill="black"/><ellipse cx="60" cy="22" rx="6" ry="7" fill="black"/><ellipse cx="71" cy="30" rx="5" ry="6" fill="black"/></mask></defs><g mask="url(#fb3)"><circle cx="40" cy="40" r="36" fill="#C97B3A"/><circle cx="40" cy="40" r="30" fill="#D4893F"/><circle cx="30" cy="38" r="4" fill="#7A3E10"/><circle cx="50" cy="50" r="3" fill="#7A3E10"/></g></svg></span>
+    <span class="fc" style="left:65%;top:78%;animation-duration:20s;animation-delay:7s;"><svg width="52" height="52" viewBox="0 0 80 80"><defs><mask id="fb4"><rect width="80" height="80" fill="white"/><ellipse cx="56" cy="10" rx="6" ry="7" fill="black"/><ellipse cx="67" cy="13" rx="5.5" ry="6.5" fill="black"/><ellipse cx="75" cy="22" rx="5" ry="6" fill="black"/><ellipse cx="60" cy="22" rx="6" ry="7" fill="black"/><ellipse cx="71" cy="30" rx="5" ry="6" fill="black"/></mask></defs><g mask="url(#fb4)"><circle cx="40" cy="40" r="36" fill="#C97B3A"/><circle cx="40" cy="40" r="30" fill="#D4893F"/><circle cx="26" cy="34" r="4" fill="#7A3E10"/><circle cx="46" cy="32" r="3" fill="#7A3E10"/><circle cx="52" cy="50" r="3.5" fill="#7A3E10"/></g></svg></span>
+  </div>
+  <h1>Software that's <em>baked</em><br>to perfection.</h1>
+  <p class="hero-sub">CookieBytes builds digital products with warmth, precision, and a little love — just like the best homemade cookies. Sweet results, zero crumbs.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Start a project</a>
+    <a href="#about" class="btn-secondary">Meet the team →</a>
+  </div>
+  <div class="dog-strip">
+    <div class="dog-avatar"><svg width="24" height="24" viewBox="0 0 80 80"><defs><mask id="dsa"><rect width="80" height="80" fill="white"/><ellipse cx="56" cy="10" rx="6" ry="7" fill="black"/><ellipse cx="67" cy="13" rx="5.5" ry="6.5" fill="black"/><ellipse cx="75" cy="22" rx="5" ry="6" fill="black"/><ellipse cx="60" cy="22" rx="6" ry="7" fill="black"/><ellipse cx="71" cy="30" rx="5" ry="6" fill="black"/></mask></defs><g mask="url(#dsa)"><circle cx="40" cy="40" r="36" fill="#C97B3A"/><circle cx="40" cy="40" r="30" fill="#D4893F"/><circle cx="26" cy="34" r="4" fill="#7A3E10"/><circle cx="46" cy="32" r="3" fill="#7A3E10"/><circle cx="52" cy="50" r="3.5" fill="#7A3E10"/><circle cx="32" cy="52" r="2.5" fill="#7A3E10"/></g></svg></div>
+    <span>Powered by code, caffeine, and <strong>4 animals</strong> who run the place</span>
+  </div>
+</section>
+
+<section class="services-bg" id="services">
+  <div class="container">
+    <p class="section-label">// what we bake</p>
+    <h2 class="section-title">Full-stack flavours for every appetite.</h2>
+    <p class="section-desc">From crispy MVPs to layered enterprise platforms — we craft software that feels exactly right.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon" style="background:#D4EDEA;">📱</div><h3>Mobile Apps</h3><p>Native-quality mobile experiences for iOS and Android. Smooth interactions, offline-first, and ready for scale.</p></div>
+      <div class="service-card"><div class="service-icon" style="background:#FDF0E0;">🔧</div><h3>API & Backend</h3><p>Robust, well-documented APIs and backend systems. Built for reliability, security, and the kind of uptime that lets you sleep at night.</p></div>
+      <div class="service-card"><div class="service-icon" style="background:#FFF4E0;">🎨</div><h3>Product Design</h3><p>UX and UI with personality. We design interfaces that feel human — intuitive, warm, and worth coming back to.</p></div>
+      <div class="service-card"><div class="service-icon" style="background:#E8F5EE;">🚀</div><h3>DevOps & Scale</h3><p>CI/CD, containerization, and cloud architecture. We get your code shipped cleanly and keep it running at any load.</p></div>
+      <div class="service-card"><div class="service-icon" style="background:#EEF2FF;">🏗️</div><h3>Infrastructure</h3><p>From cloud provisioning to on-premise setups, we design and manage infrastructure that's resilient, cost-efficient, and built to grow with you.</p></div>
+      <div class="service-card"><div class="service-icon" style="background:#FDF4FF;">🌐</div><h3>Network</h3><p>Secure, high-performance network design and management. We make sure your systems talk to each other reliably — and that the wrong ones don't.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <p class="section-label">// our story</p>
+    <h2 class="section-title">Named after animals. Built for the long run.</h2>
+    <div class="about-intro">
+      <p class="section-desc" style="margin-bottom:1rem;">CookieBytes started with two things: a love of clean code and a dog named Cookie. The cookies? They represent warmth, care, and the satisfaction of something made just right. Bytes? That's all the software magic happening behind the scenes.</p>
+      <p class="section-desc" style="margin-bottom:0;">Then Billy joined, Rocky knocked things off shelves, and Peggy started judging everyone's code reviews. We're a small, focused studio — no bloat, no fluff, and four animals who definitely run the place.</p>
+    </div>
+    <div class="crew-divider"><span>🐾 The crew</span></div>
+    <div class="crew-grid" style="margin-bottom:1.2rem;">
+      <div class="crew-card cookie-card"><span class="crew-emoji">🐕</span><h3>Cookie</h3><p>The original. Calm, dependable, and deeply invested in every product decision. Has never missed a standup.</p><span class="crew-chip">Chief Happiness Officer</span></div>
+      <div class="crew-card billy-card"><span class="crew-emoji">🐶</span><h3>Billy</h3><p>Joined like a wrecking ball and hasn't slowed down. Responsible for 3 pivots, 2 rebrands, and one keyboard that didn't survive.</p><span class="crew-chip">Chief Disruption Officer</span></div>
+      <div class="crew-card rocky-card"><span class="crew-emoji">🐱</span><h3>Rocky</h3><p>Treats every sprint like a playground. Has personally deleted two Figma files, one production config, and half a sandwich.</p><span class="crew-chip">Head of Chaos Engineering</span></div>
+      <div class="crew-card peggy-card"><span class="crew-emoji">🐈</span><h3>Peggy</h3><p>Watches. Thinks. Judges silently. Her feedback is rare but devastating. The team has learned to take it seriously.</p><span class="crew-chip">Director of Silent Reviews</span></div>
+    </div>
+    <div class="stat-solo">
+      <div class="stat-num">4🍪</div>
+      <div class="stat-label">Daily treats — split evenly, negotiated daily, disputed always</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-box">
+      <div class="cta-top">
+        <h2>Ready to bake something great?</h2>
+        <p>Tell us about your project. We'll bring the butter, you bring the idea.</p>
+      </div>
+      <div class="cta-form" id="contactForm">
+        <div id="formFields">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" placeholder="Your name" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" placeholder="your@email.com" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Message</label>
+            <textarea id="fmessage" placeholder="Tell us about your project…"></textarea>
+          </div>
+          <div class="captcha-box" id="captchaBox" onclick="handleCaptcha()">
+            <div class="captcha-left">
+              <div class="captcha-checkbox" id="captchaCheck">
+                <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="captcha-label" id="captchaLabel">I'm not a robot 🤖</span>
+            </div>
+            <div class="captcha-right">
+              <span class="captcha-logo">🍪</span>
+              <span class="captcha-brand">CookieCaptcha</span>
+            </div>
+          </div>
+          <button class="form-submit" id="submitBtn" disabled onclick="handleSubmit()">Send message</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <span class="form-success-emoji">🐕</span>
+          <h3>Message received!</h3>
+          <p>Cookie is already wagging. We'll be in touch very soon.</p>
+        </div>
+      </div>
+      <div class="cta-divider"><span>or just send us an email directly</span></div>
+      <div class="cta-email-wrap">
+        <a href="mailto:hello@cookiebytes.pt" class="cta-email-pill">
+          <span>🍪</span> hello@cookiebytes.pt
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">
+    <svg width="28" height="28" viewBox="0 0 80 80"><defs><mask id="fb"><rect width="80" height="80" fill="white"/><ellipse cx="56" cy="10" rx="6" ry="7" fill="black"/><ellipse cx="67" cy="13" rx="5.5" ry="6.5" fill="black"/><ellipse cx="75" cy="22" rx="5" ry="6" fill="black"/><ellipse cx="60" cy="22" rx="6" ry="7" fill="black"/><ellipse cx="71" cy="30" rx="5" ry="6" fill="black"/></mask></defs><g mask="url(#fb)"><circle cx="40" cy="40" r="36" fill="#C97B3A"/><circle cx="40" cy="40" r="30" fill="#D4893F"/><circle cx="26" cy="34" r="4.5" fill="#7A3E10"/><circle cx="46" cy="32" r="3.5" fill="#7A3E10"/><circle cx="52" cy="50" r="4" fill="#7A3E10"/><circle cx="32" cy="52" r="3" fill="#7A3E10"/><circle cx="44" cy="56" r="3.5" fill="#7A3E10"/><circle cx="22" cy="50" r="2.5" fill="#7A3E10"/><circle cx="36" cy="44" r="3" fill="#7A3E10"/></g></svg>
+    CookieBytes
+  </div>
+  <div class="footer-tagline">// software with warmth</div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 CookieBytes · cookiebytes.pt · Cookie is a good girl. Billy is trying his best. Rocky, please get off the keyboard. Peggy knows.</div>
+</footer>
+
+<script>
+  let captchaDone = false;
+  function handleCaptcha() {
+    if (captchaDone) return;
+    const check = document.getElementById('captchaCheck');
+    const label = document.getElementById('captchaLabel');
+    const btn = document.getElementById('submitBtn');
+    const box = document.getElementById('captchaBox');
+    label.textContent = 'Verifying…';
+    box.style.pointerEvents = 'none';
+    setTimeout(() => {
+      check.classList.add('checked');
+      label.textContent = 'Human confirmed 🐾';
+      captchaDone = true;
+      btn.disabled = false;
+    }, 900);
+  }
+  function handleSubmit() {
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const message = document.getElementById('fmessage').value.trim();
+    if (!name || !email || !message) { alert('Please fill in all fields before sending.'); return; }
+    if (!captchaDone) { alert('Please complete the captcha first.'); return; }
+    document.getElementById('formFields').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('visible');
+  }
+</script>
+</body>
 </html>
