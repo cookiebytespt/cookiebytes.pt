@@ -49,8 +49,9 @@
   .section-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.7; max-width: 500px; margin-bottom: 3rem; }
 
   .services-bg { background: var(--soft-white); }
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
-  .service-card { background: white; border: 1px solid var(--border); border-radius: 1.5rem; padding: 2rem 1.75rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: default; }
+  .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 3.5rem; }
+  @media (max-width: 620px) { .service-card { flex: 1 1 100%; max-width: 100%; } }
+  .service-card { background: white; border: 1px solid var(--border); border-radius: 1.5rem; padding: 2rem 1.75rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: default; flex: 1 1 240px; max-width: 280px; }
   .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(201,123,58,0.12); border-color: var(--cookie-light); }
   .service-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 1.2rem; }
   .service-card h3 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; color: var(--chip); margin-bottom: 0.6rem; }
