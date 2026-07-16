@@ -4,6 +4,10 @@ url: "https://cookiebytes.pt"
 baseurl: ""
 lang: en
 
+# Social links (footer icons)
+github_url: "https://github.com/cookiebytespt"
+instagram_url: "https://www.instagram.com/cookiebytes.pt"
+
 permalink: /blog/:title/
 
 markdown: kramdown
