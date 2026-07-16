@@ -1,0 +1,27 @@
+---
+layout: default
+extra_css:
+  - /assets/css/blog.css
+---
+<main class="article-wrap">
+  <a href="{{ '/blog/' | relative_url }}" class="back-link">← Back to the Cookie Jar</a>
+  <div class="post-meta">
+    <span class="post-tag tag-{{ page.category }}">{{ page.category }}</span>
+    <span class="post-date">{{ page.date | date: "%Y-%m-%d" }}</span>
+    <span class="post-read">{{ page.read_time }}</span>
+  </div>
+  <h1>{{ page.title }}</h1>
+  {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
+
+  <article class="cat-{{ page.category }}">
+    {{ content }}
+  </article>
+
+  <div class="author-box">
+    <div class="author-avatar avatar-{{ page.category }}">{{ page.author_emoji | default: '🍪' }}</div>
+    <div>
+      <strong>The CookieBytes team</strong>
+      <span>{{ page.author_note }}</span>
+    </div>
+  </div>
+</main>
