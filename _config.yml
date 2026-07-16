@@ -1,0 +1,16 @@
+title: CookieBytes
+description: Software that's baked to perfection. CookieBytes builds digital products with warmth, precision, and a little love.
+url: "https://cookiebytes.pt"
+baseurl: ""
+lang: en
+
+permalink: /blog/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md

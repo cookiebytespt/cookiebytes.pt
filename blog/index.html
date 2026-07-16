@@ -1,0 +1,39 @@
+---
+layout: default
+title: The Cookie Jar
+description: Notes from the oven — stories, tech deep-dives, and crew chaos from the CookieBytes studio.
+extra_css:
+  - /assets/css/blog.css
+---
+<header class="blog-hero">
+  <div class="blog-hero-bg"></div>
+  <p class="blog-label">// the cookie jar</p>
+  <h1>Fresh from <em>the oven</em>.</h1>
+  <p>Notes on software, smart homes, and studio life — written by humans, supervised by four animals.</p>
+</header>
+
+<main class="posts-wrap">
+{% for post in site.posts %}
+  <a class="post-card" href="{{ post.url | relative_url }}">
+    <span class="post-emoji">{{ post.emoji }}</span>
+    <div class="post-meta">
+      <span class="post-tag tag-{{ post.category }}">{{ post.category }}</span>
+      <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      <span class="post-read">{{ post.read_time }}</span>
+    </div>
+    <h2>{{ post.title }}</h2>
+    <p class="excerpt">{{ post.description }}</p>
+    <span class="post-arrow">Read post →</span>
+  </a>
+{% endfor %}
+</main>
+
+<div class="subscribe-strip">
+  <div class="subscribe-box">
+    <div>
+      <h3>Want new posts in your inbox?</h3>
+      <p>No spam, no crumbs. Just an email when something fresh comes out of the oven.</p>
+    </div>
+    <a href="mailto:hello@cookiebytes.pt?subject=Subscribe%20me%20to%20the%20Cookie%20Jar%20🍪" class="subscribe-btn">Subscribe by email</a>
+  </div>
+</div>

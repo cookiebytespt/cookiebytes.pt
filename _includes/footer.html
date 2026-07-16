@@ -1,0 +1,14 @@
+<footer>
+  <div class="footer-logo">
+    {% include cookie-logo.html size=28 id="footer" %}
+    CookieBytes
+  </div>
+  <div class="footer-tagline">// software with warmth</div>
+  <ul class="footer-links">
+    <li><a href="{{ '/' | relative_url }}#services">Services</a></li>
+    <li><a href="{{ '/' | relative_url }}#about">About</a></li>
+    <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+    <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© {{ site.time | date: "%Y" }} CookieBytes · cookiebytes.pt · Cookie is a good girl. Billy is trying his best. Rocky, please get off the keyboard. Peggy knows.</div>
+</footer>
