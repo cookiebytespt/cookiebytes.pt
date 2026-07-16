@@ -60,3 +60,21 @@ article.cat-crew code { background: rgba(107,63,160,0.08); color: var(--rocky); 
 .author-avatar.avatar-crew { background: var(--rocky); }
 .author-box strong { font-family: 'Fraunces', serif; font-size: 1rem; color: var(--chip); display: block; margin-bottom: 0.15rem; }
 .author-box span { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+/* Article extras — figures, code blocks, shopping cards */
+article h2 { margin-top: 3.4rem; }
+article figure { margin: 2.2rem auto; text-align: center; }
+article figure img { max-width: 100%; width: auto; max-height: 560px; border-radius: 1.25rem; border: 1px solid var(--border); box-shadow: 0 10px 32px rgba(201,123,58,0.14); }
+article figcaption { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.7rem; letter-spacing: 0.04em; }
+article pre { background: #10201C; color: #D4EDEA; border-radius: 1rem; padding: 1.3rem 1.5rem; overflow-x: auto; font-family: 'DM Mono', monospace; font-size: 0.78rem; line-height: 1.6; margin: 1.6rem 0; }
+article pre code { background: none; color: inherit; padding: 0; }
+
+.shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.6rem 0 0.6rem; }
+.shop-item { background: var(--soft-white); border: 1px solid var(--border); border-left: 4px solid var(--byte); border-radius: 1.1rem; padding: 1.2rem 1.3rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.shop-item .shop-emoji { font-size: 1.6rem; }
+.shop-item strong { font-family: 'Fraunces', serif; font-size: 1.02rem; color: var(--chip); }
+.shop-item p { font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.55; }
+.shop-item a { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.4rem; font-size: 0.8rem; font-weight: 600; color: var(--byte); text-decoration: none; }
+.shop-item a:hover { text-decoration: underline; }
+.shop-extras { background: var(--byte-light); border-radius: 1.1rem; padding: 1.1rem 1.4rem; font-size: 0.88rem; color: var(--byte); line-height: 1.7; margin-bottom: 1.2rem; }
+@media (max-width: 560px) { .shop-grid { grid-template-columns: 1fr; } }
