@@ -1,0 +1,54 @@
+---
+layout: default
+extra_css:
+  - /assets/css/portfolio.css
+---
+<main class="case-wrap">
+  <a href="{{ '/portfolio/' | relative_url }}" class="back-link">← Back to our work</a>
+  <div class="project-meta">
+    <span class="status {{ page.status }}">{% if page.status == 'live' %}Live{% else %}In the oven{% endif %}</span>
+    <span class="year">{{ page.year }} · {{ page.kind }}</span>
+  </div>
+  <h1>{{ page.title }}</h1>
+  <p class="client">{{ page.client }}</p>
+  {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+
+  <div class="case-visual">
+    {% include project-mock.html project=page %}
+  </div>
+
+  {%- if page.stack -%}
+  <div class="case-facts">
+    <div>
+      <p class="ingredients-label">Ingredients</p>
+      <div class="ingredients">{% for s in page.stack %}<span>{{ s }}</span>{% endfor %}</div>
+    </div>
+    <div class="case-actions">
+      {%- if page.site_url -%}
+      <a href="{{ page.site_url }}" target="_blank" rel="noopener" class="btn-primary">Visit the site ↗</a>
+      {%- else -%}
+      <a href="{{ '/' | relative_url }}#contact" class="btn-secondary">Launching soon — ask us about it</a>
+      {%- endif -%}
+    </div>
+  </div>
+  {%- endif -%}
+
+  <article class="case-body">
+    {{ content }}
+  </article>
+
+  {%- if page.status == 'wip' and page.progress -%}
+  <div class="progress case-progress">
+    <div class="progress-head"><span>Baking progress</span><span>{{ page.progress_note }}</span></div>
+    <div class="progress-bar"><i style="--pct:{{ page.progress }}%"></i></div>
+  </div>
+  {%- endif -%}
+
+  <div class="author-box">
+    <div class="author-avatar">🍪</div>
+    <div>
+      <strong>Baked by CookieBytes</strong>
+      <span>Want something like this? <a href="{{ '/' | relative_url }}#contact">Tell us about your project</a> — we'll preheat the oven.</span>
+    </div>
+  </div>
+</main>

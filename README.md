@@ -39,15 +39,50 @@ Optional flourishes inside posts:
 <div class="divider">🍪 🍪 🍪</div>
 ```
 
+## Add a project to the portfolio
+
+Create `_portfolio/slug.md` — the listing at `/portfolio/` and the case-study page at `/portfolio/slug/` update automatically:
+
+```yaml
+---
+title: Project name
+client: Who it was for · Where
+kind: Event website          # short label shown next to the year
+year: 2026
+status: live                 # live | wip  (wip adds the "Work in progress" tape + progress bar)
+order: 1                     # lower = shown first
+description: One-sentence summary shown on the listing and as the case-study lede.
+site_url: https://example.com/   # leave empty while in progress
+tagline: "// optional mono-font flourish next to the buttons"
+progress: 55                 # wip only — % on the "baking progress" bar
+progress_note: API & store · in development
+screenshot: /assets/portfolio/slug/home.png   # real screenshot (preferred) …
+mock: bonanca                # … or a CSS mock: bonanca | brindigrafica (anything else = emoji placeholder)
+image: /assets/portfolio/slug/poster.jpg      # poster inside the bonanca mock
+highlights:
+  - Bullet points shown on the listing card.
+stack:
+  - Next.js
+  - Vapor 4
+---
+
+Markdown case study (optional). `## Headings`, lists, `<figure>` etc. work as in blog posts.
+```
+
 ## Structure
 
 - `_layouts/default.html` — head, nav, footer (shared by everything)
 - `_layouts/post.html` — article page (meta, lede, author box)
 - `_includes/` — nav, footer, cookie logo SVG
-- `assets/css/` — `shared.css` (tokens/nav/footer), `home.css`, `blog.css`
+- `assets/css/` — `shared.css` (tokens/nav/footer), `home.css`, `blog.css`, `portfolio.css`
 - `index.html` — landing page
 - `blog/index.html` — post listing
 - `_posts/` — the posts
+- `_layouts/project.html` — portfolio case-study page
+- `_includes/project-mock.html` — browser-frame preview (screenshot or CSS mock)
+- `portfolio/index.html` — portfolio listing
+- `_portfolio/` — one file per project (collection, see `_config.yml`)
+- `assets/portfolio/` — project images
 
 ## Deploy
 
