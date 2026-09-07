@@ -18,3 +18,16 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+
+# Portfolio — one file per project in _portfolio/, listed at /portfolio/
+collections:
+  portfolio:
+    output: true
+    permalink: /portfolio/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: project

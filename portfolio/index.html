@@ -1,0 +1,75 @@
+---
+layout: default
+title: Work
+description: Selected work by CookieBytes — websites, APIs and digital products baked with care.
+extra_css:
+  - /assets/css/portfolio.css
+---
+{%- assign projects = site.portfolio | sort: "order" -%}
+{%- assign live = projects | where: "status", "live" | size -%}
+{%- assign wip = projects | where: "status", "wip" | size -%}
+<header class="work-hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <p class="section-label">// our work</p>
+    <h1>Fresh out of <em>the oven.</em></h1>
+    <p class="hero-sub">A few things we've baked recently — and what's still rising. Every project gets the same recipe: clean code, honest design, and a crew of four animals supervising from the couch.</p>
+    <div class="oven-count"><span class="dot">🔥</span><span><strong>{{ live }}</strong> shipped · <strong>{{ wip }}</strong> in the oven · <strong>0</strong> burnt</span></div>
+  </div>
+</header>
+
+<main class="projects">
+  <div class="container">
+  {%- for p in projects -%}
+    <article class="project{% cycle '', ' flip' %}" id="{{ p.slug | default: p.title | slugify }}">
+      <div class="project-visual">
+        <a href="{{ p.url | relative_url }}" class="visual-link" aria-label="{{ p.title }}">{% include project-mock.html project=p %}</a>
+      </div>
+      <div class="project-copy">
+        <div class="project-meta">
+          <span class="status {{ p.status }}">{% if p.status == 'live' %}Live{% else %}In the oven{% endif %}</span>
+          <span class="year">{{ p.year }} · {{ p.kind }}</span>
+        </div>
+        <h2><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h2>
+        <p class="client">{{ p.client }}</p>
+        <p class="desc">{{ p.description }}</p>
+        {%- if p.highlights -%}
+        <ul class="highlights">
+          {%- for h in p.highlights -%}<li>{{ h }}</li>{%- endfor -%}
+        </ul>
+        {%- endif -%}
+        {%- if p.status == 'wip' and p.progress -%}
+        <div class="progress">
+          <div class="progress-head"><span>Baking progress</span><span>{{ p.progress_note }}</span></div>
+          <div class="progress-bar"><i style="--pct:{{ p.progress }}%"></i></div>
+        </div>
+        {%- endif -%}
+        {%- if p.stack -%}
+        <p class="ingredients-label">Ingredients</p>
+        <div class="ingredients">{% for s in p.stack %}<span>{{ s }}</span>{% endfor %}</div>
+        {%- endif -%}
+        <div class="project-actions">
+          {%- if p.site_url -%}
+          <a href="{{ p.site_url }}" target="_blank" rel="noopener" class="btn-primary">Visit the site ↗</a>
+          <a href="{{ p.url | relative_url }}" class="btn-secondary">Case study</a>
+          {%- else -%}
+          <a href="{{ p.url | relative_url }}" class="btn-secondary">Read about it</a>
+          <a href="{{ '/' | relative_url }}#contact" class="btn-ghost">Launching soon — ask us about it →</a>
+          {%- endif -%}
+          {%- if p.tagline -%}<span class="btn-ghost">{{ p.tagline }}</span>{%- endif -%}
+        </div>
+      </div>
+    </article>
+  {%- endfor -%}
+  </div>
+</main>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-mini">
+      <h2>Want to be the next one on this page?</h2>
+      <p>Tell us what you're building. We'll preheat the oven.</p>
+      <a href="{{ '/' | relative_url }}#contact" class="btn-primary">Start a project</a>
+    </div>
+  </div>
+</section>
