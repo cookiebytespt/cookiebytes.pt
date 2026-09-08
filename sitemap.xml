@@ -1,0 +1,41 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {%- comment -%} Static pages (index, /blog/, /portfolio/) {%- endcomment -%}
+  {%- assign pages = site.pages | where_exp: "p", "p.sitemap != false" | sort: "url" -%}
+  {%- for pg in pages -%}
+  {%- unless pg.url contains ".xml" or pg.url contains ".txt" or pg.url contains ".json" -%}
+  <url>
+    <loc>{{ pg.url | replace: 'index.html', '' | absolute_url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>{% if pg.url == '/' %}monthly{% else %}weekly{% endif %}</changefreq>
+    <priority>{% if pg.url == '/' %}1.0{% else %}0.8{% endif %}</priority>
+  </url>
+  {%- endunless -%}
+  {%- endfor -%}
+
+  {%- comment -%} Portfolio case studies {%- endcomment -%}
+  {%- assign projects = site.portfolio | where_exp: "p", "p.sitemap != false" | sort: "order" -%}
+  {%- for project in projects %}
+  <url>
+    <loc>{{ project.url | absolute_url }}</loc>
+    <lastmod>{{ project.last_modified_at | default: site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  {%- endfor -%}
+
+  {%- comment -%} Blog posts {%- endcomment -%}
+  {%- assign posts = site.posts | where_exp: "p", "p.sitemap != false" -%}
+  {%- for post in posts %}
+  <url>
+    <loc>{{ post.url | absolute_url }}</loc>
+    <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  {%- endfor %}
+</urlset>
