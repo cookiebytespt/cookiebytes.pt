@@ -8,6 +8,9 @@ lang: en
 github_url: "https://github.com/cookiebytespt"
 instagram_url: "https://www.instagram.com/cookiebytes.pt"
 
+# Cloudflare Web Analytics (beacon only loads when JEKYLL_ENV=production)
+cloudflare_analytics_token: "12954f0d65304b0c90bcf2ec75dde7a8"
+
 permalink: /blog/:title/
 
 markdown: kramdown
