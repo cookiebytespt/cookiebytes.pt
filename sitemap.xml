@@ -4,15 +4,15 @@ sitemap: false
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {%- comment -%} Static pages (index, /blog/, /portfolio/) {%- endcomment -%}
+  {%- comment -%} Static pages (index, /blog/, /portfolio/ and their /pt/ versions) {%- endcomment -%}
   {%- assign pages = site.pages | where_exp: "p", "p.sitemap != false" | sort: "url" -%}
   {%- for pg in pages -%}
   {%- unless pg.url contains ".xml" or pg.url contains ".txt" or pg.url contains ".json" -%}
   <url>
     <loc>{{ pg.url | replace: 'index.html', '' | absolute_url }}</loc>
     <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>{% if pg.url == '/' %}monthly{% else %}weekly{% endif %}</changefreq>
-    <priority>{% if pg.url == '/' %}1.0{% else %}0.8{% endif %}</priority>
+    <changefreq>{% if pg.url == '/' or pg.url == '/pt/' %}monthly{% else %}weekly{% endif %}</changefreq>
+    <priority>{% if pg.url == '/' %}1.0{% elsif pg.url == '/pt/' %}0.9{% else %}0.8{% endif %}</priority>
   </url>
   {%- endunless -%}
   {%- endfor -%}

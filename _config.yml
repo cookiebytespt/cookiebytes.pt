@@ -2,7 +2,11 @@ title: CookieBytes
 description: Software that's baked to perfection. CookieBytes builds digital products with warmth, precision, and a little love.
 url: "https://cookiebytes.pt"
 baseurl: ""
+
+# Languages — English is the default and lives at the site root; Portuguese lives under /pt/.
+# UI strings: _data/i18n/<lang>.yml. Translations of the same page/post/project share a `ref`.
 lang: en
+languages: [en, pt]
 
 # Social links (footer icons)
 github_url: "https://github.com/cookiebytespt"
@@ -22,15 +26,38 @@ exclude:
   - Gemfile.lock
   - README.md
 
-# Portfolio — one file per project in _portfolio/, listed at /portfolio/
+# Portfolio — one file per project in _portfolio/ (English) and _portfolio/pt/ (Portuguese)
 collections:
   portfolio:
     output: true
     permalink: /portfolio/:name/
 
 defaults:
+  # everything is English unless it lives in a Portuguese folder
+  - scope:
+      path: ""
+    values:
+      lang: en
+  - scope:
+      path: "pt"
+    values:
+      lang: pt
+  # blog posts: _posts/*.md → /blog/:title/, _posts/pt/*.md → /pt/blog/:title/
+  - scope:
+      path: "_posts/pt"
+      type: posts
+    values:
+      lang: pt
+      permalink: /pt/blog/:title/
+  # portfolio projects: _portfolio/*.md → /portfolio/:name/, _portfolio/pt/*.md → /pt/portfolio/:name/
   - scope:
       path: ""
       type: portfolio
     values:
       layout: project
+  - scope:
+      path: "_portfolio/pt"
+      type: portfolio
+    values:
+      lang: pt
+      permalink: /pt/portfolio/:name/

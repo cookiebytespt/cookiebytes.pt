@@ -1,0 +1,121 @@
+# Portuguese (pt-PT) UI strings, served under /pt/
+code: pt
+html_lang: pt-PT
+name: Português
+short: PT
+prefix: "/pt"
+switch_label: Ler em português
+
+nav:
+  services: Serviços
+  about: Sobre nós
+  work: Projetos
+  blog: Blog
+  contact: Contacto
+  get_in_touch: Fale connosco
+  open_menu: Abrir menu
+
+footer:
+  tagline: "// software with warmth"
+  copy: A Cookie é uma boa menina. O Billy está a dar o seu melhor. Rocky, sai de cima do teclado, por favor. A Peggy sabe.
+
+home:
+  hero_title_html: Software <em>no ponto</em>,<br>saído do forno.
+  hero_sub: A CookieBytes cria produtos digitais com carinho, precisão e um pouco de amor — como as melhores bolachas caseiras. Resultados doces, zero migalhas.
+  start_project: Começar um projeto
+  meet_team: Conhecer a equipa →
+  dog_strip_html: Movidos a código, cafeína e <strong>4 animais</strong> que mandam nisto tudo
+  services_label: "// o que sai do forno"
+  services_title: Sabores full-stack para todos os apetites.
+  services_desc: De MVPs estaladiços a plataformas empresariais com várias camadas — criamos software que sabe exatamente como deve saber.
+  services:
+    - { icon: "📱", bg: "#D4EDEA", title: "Apps Móveis", text: "Experiências móveis com qualidade nativa para iOS e Android. Interações fluidas, offline-first e prontas para escalar." }
+    - { icon: "🔧", bg: "#FDF0E0", title: "API & Backend", text: "APIs e sistemas de backend robustos e bem documentados. Feitos para a fiabilidade, a segurança e o tipo de uptime que o deixa dormir descansado." }
+    - { icon: "🎨", bg: "#FFF4E0", title: "Design de Produto", text: "UX e UI com personalidade. Desenhamos interfaces que parecem humanas — intuitivas, acolhedoras e às quais apetece voltar." }
+    - { icon: "🚀", bg: "#E8F5EE", title: "DevOps & Escala", text: "CI/CD, contentores e arquitetura cloud. Pomos o seu código em produção de forma limpa e mantemo-lo a funcionar com qualquer carga." }
+    - { icon: "🏗️", bg: "#EEF2FF", title: "Infraestrutura", text: "Do provisionamento na cloud a instalações on-premise, desenhamos e gerimos infraestrutura resiliente, eficiente em custos e pronta para crescer consigo." }
+    - { icon: "🌐", bg: "#FDF4FF", title: "Redes", text: "Desenho e gestão de redes seguras e de alto desempenho. Garantimos que os seus sistemas comunicam entre si com fiabilidade — e que os errados não." }
+    - { icon: "🏠", bg: "#FFEEDD", title: "Domótica", text: "Casas inteligentes, integrações IoT e instalações de Home Assistant. Pomos o seu espaço a responder-lhe — luzes, sensores e rotinas, tudo em sintonia." }
+  about_label: "// a nossa história"
+  about_title: Batizada por animais. Feita para durar.
+  about_p1: "A CookieBytes começou com duas coisas: o gosto por código limpo e uma cadela chamada Cookie. As bolachas? Representam carinho, cuidado e a satisfação de algo feito no ponto. Os bytes? São toda a magia do software a acontecer nos bastidores."
+  about_p2: Depois chegou o Billy, o Rocky começou a atirar coisas das prateleiras abaixo e a Peggy passou a julgar as code reviews de toda a gente. Somos um estúdio pequeno e focado — sem excessos, sem floreados e com quatro animais que claramente mandam nisto.
+  crew_divider: 🐾 A equipa
+  crew:
+    - { key: cookie, emoji: "🐕", name: "Cookie", text: "A original. Calma, fiável e profundamente envolvida em todas as decisões de produto. Nunca faltou a uma standup.", role: "Diretora de Felicidade" }
+    - { key: billy, emoji: "🐶", name: "Billy", text: "Chegou como uma bola de demolição e ainda não abrandou. Responsável por 3 pivots, 2 rebrands e um teclado que não sobreviveu.", role: "Diretor de Disrupção" }
+    - { key: rocky, emoji: "🐱", name: "Rocky", text: "Trata cada sprint como um parque infantil. Já apagou dois ficheiros do Figma, uma configuração de produção e meia sandes.", role: "Engenheiro-Chefe do Caos" }
+    - { key: peggy, emoji: "🐈", name: "Peggy", text: "Observa. Pensa. Julga em silêncio. O feedback dela é raro, mas devastador. A equipa aprendeu a levá-lo a sério.", role: "Diretora de Revisões Mudas" }
+  stat_label: Guloseimas diárias — divididas em partes iguais, negociadas todos os dias, contestadas sempre
+  contact_title: Vamos pôr algo bom no forno?
+  contact_text: Fale-nos do seu projeto. Nós trazemos a manteiga, você traz a ideia.
+  form:
+    subject: Novo contacto pelo site CookieBytes 🍪 (PT)
+    name: Nome
+    name_placeholder: O seu nome
+    email: Email
+    email_placeholder: o-seu@email.com
+    message: Mensagem
+    message_placeholder: Fale-nos do seu projeto…
+    captcha: Não sou um robô 🤖
+    verifying: A verificar…
+    confirmed: Humano confirmado 🐾
+    captcha_first: Por favor, complete primeiro o captcha.
+    submit: Enviar mensagem
+    sending: A enviar…
+    error: Algo correu mal. Tente novamente ou envie-nos um email diretamente.
+    network_error: Erro de rede. Tente novamente ou envie-nos um email diretamente.
+    success_title: Mensagem recebida!
+    success_text: A Cookie já está a abanar a cauda. Entraremos em contacto muito em breve.
+  email_divider: ou envie-nos simplesmente um email
+
+portfolio:
+  title: Projetos
+  description: Trabalho selecionado da CookieBytes — sites, APIs e produtos digitais feitos com carinho.
+  label: "// o nosso trabalho"
+  hero_title_html: Acabados de sair <em>do forno.</em>
+  hero_sub: "Algumas coisas que fizemos recentemente — e o que ainda está a levedar. Todos os projetos seguem a mesma receita: código limpo, design honesto e uma equipa de quatro animais a supervisionar a partir do sofá."
+  shipped_one: concluído
+  shipped_other: concluídos
+  in_oven: no forno
+  burnt_one: queimado
+  burnt_other: queimados
+  status_live: Online
+  status_wip: No forno
+  baking_progress: Progresso da fornada
+  ingredients: Ingredientes
+  visit_site: Visitar o site ↗
+  case_study: Caso de estudo
+  read_about: Saber mais
+  launching_soon: Lançamento em breve — pergunte-nos
+  cta_title: Quer ser o próximo nesta página?
+  cta_text: Conte-nos o que está a construir. Nós pré-aquecemos o forno.
+  cta_button: Começar um projeto
+  back: ← Voltar aos projetos
+  baked_by: Feito pela CookieBytes
+  author_before: Quer algo assim?
+  author_link: Fale-nos do seu projeto
+  author_after: — nós pré-aquecemos o forno.
+  wip_tape: Em curso
+  staging: staging
+  homepage: página inicial
+  mock_home_label: Página inicial do site
+  mock_wip_label: Pré-visualização da nova loja online, ainda em construção
+
+blog:
+  title: The Cookie Jar
+  description: Notas do forno — histórias, mergulhos técnicos e o caos da equipa do estúdio CookieBytes.
+  label: "// the cookie jar"
+  hero_title_html: Acabado de sair <em>do forno</em>.
+  hero_sub: Notas sobre software, casas inteligentes e a vida no estúdio — escritas por humanos, supervisionadas por quatro animais.
+  read_post: Ler artigo →
+  subscribe_title: Quer receber os novos artigos por email?
+  subscribe_text: Sem spam, sem migalhas. Só um email quando sai algo fresco do forno.
+  subscribe_button: Subscrever por email
+  subscribe_subject: Quero subscrever o Cookie Jar 🍪
+  back: ← Voltar ao Cookie Jar
+  team: A equipa CookieBytes
+  categories:
+    studio: estúdio
+    tech: tech
+    crew: equipa

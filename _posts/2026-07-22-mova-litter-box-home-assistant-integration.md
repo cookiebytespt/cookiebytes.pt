@@ -1,4 +1,5 @@
 ---
+ref: mova-litter-box-home-assistant-integration
 layout: post
 title: We built a Home Assistant integration for our cats' litter box
 description: The MOVA MeowgicPod only talks to its own cloud app, with no documented API. Here's how we reverse-engineered the protocol, guessed our way to the action IDs, and shipped four releases in two days — plus what's still on the roadmap.

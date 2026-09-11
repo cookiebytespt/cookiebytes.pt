@@ -1,0 +1,24 @@
+{%- comment -%}
+Sets up language variables for the current page. Include at the top of any layout/include that
+needs translated strings. Variables assigned here stay available to the caller:
+  lang      "en" | "pt"               (page.lang, set via _config.yml defaults or front matter)
+  t         site.data.i18n[lang]      (UI strings, see _data/i18n/*.yml)
+  home_url  language home, e.g. "/" or "/pt/"
+  alt_lang, alt_t, alt_url            the other language + URL of this page's translation
+                                      (matched by `ref`; falls back to that language's home)
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang | default: "en" -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign home_url = t.prefix | append: "/" | relative_url -%}
+{%- if lang == "pt" -%}{%- assign alt_lang = "en" -%}{%- else -%}{%- assign alt_lang = "pt" -%}{%- endif -%}
+{%- assign alt_t = site.data.i18n[alt_lang] -%}
+{%- assign alt_doc = nil -%}
+{%- if page.ref -%}
+  {%- if page.collection -%}{%- assign i18n_pool = site[page.collection] -%}{%- else -%}{%- assign i18n_pool = site.pages -%}{%- endif -%}
+  {%- assign alt_doc = i18n_pool | where: "ref", page.ref | where: "lang", alt_lang | first -%}
+{%- endif -%}
+{%- if alt_doc -%}
+  {%- assign alt_url = alt_doc.url | relative_url -%}
+{%- else -%}
+  {%- assign alt_url = alt_t.prefix | append: "/" | relative_url -%}
+{%- endif -%}

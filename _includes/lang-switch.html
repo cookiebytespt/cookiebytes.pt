@@ -1,0 +1,11 @@
+{%- comment -%} EN · PT toggle. Requires i18n.html to have run. {%- endcomment -%}
+<span class="nav-lang" role="group" aria-label="Language / Idioma">
+  {%- for code in site.languages -%}
+    {%- assign lt = site.data.i18n[code] -%}
+    {%- if code == lang -%}
+    <span class="is-current" lang="{{ lt.html_lang }}" aria-current="true" title="{{ lt.name }}">{{ lt.short }}</span>
+    {%- else -%}
+    <a href="{{ alt_url }}" lang="{{ lt.html_lang }}" hreflang="{{ lt.html_lang }}" title="{{ lt.switch_label }}" aria-label="{{ lt.switch_label }}">{{ lt.short }}</a>
+    {%- endif -%}
+  {%- endfor -%}
+</span>

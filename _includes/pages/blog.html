@@ -1,0 +1,37 @@
+{%- comment -%}
+Blog listing, shared by /blog/ and /pt/blog/. Shows the posts whose `lang` matches the page.
+{%- endcomment -%}
+{%- include i18n.html -%}
+{%- assign posts = site.posts | where: "lang", lang -%}
+<header class="blog-hero">
+  <div class="blog-hero-bg"></div>
+  <p class="blog-label">{{ t.blog.label }}</p>
+  <h1>{{ t.blog.hero_title_html }}</h1>
+  <p>{{ t.blog.hero_sub }}</p>
+</header>
+
+<main class="posts-wrap">
+{% for post in posts %}
+  <a class="post-card" href="{{ post.url | relative_url }}">
+    <span class="post-emoji">{{ post.emoji }}</span>
+    <div class="post-meta">
+      <span class="post-tag tag-{{ post.category }}">{{ t.blog.categories[post.category] | default: post.category }}</span>
+      <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      <span class="post-read">{{ post.read_time }}</span>
+    </div>
+    <h2>{{ post.title }}</h2>
+    <p class="excerpt">{{ post.description }}</p>
+    <span class="post-arrow">{{ t.blog.read_post }}</span>
+  </a>
+{% endfor %}
+</main>
+
+<div class="subscribe-strip">
+  <div class="subscribe-box">
+    <div>
+      <h3>{{ t.blog.subscribe_title }}</h3>
+      <p>{{ t.blog.subscribe_text }}</p>
+    </div>
+    <a href="mailto:hello@cookiebytes.pt?subject={{ t.blog.subscribe_subject | uri_escape }}" class="subscribe-btn">{{ t.blog.subscribe_button }}</a>
+  </div>
+</div>

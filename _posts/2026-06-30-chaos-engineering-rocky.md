@@ -1,4 +1,5 @@
 ---
+ref: chaos-engineering-rocky
 layout: post
 title: What Rocky taught us about chaos engineering
 description: Our Head of Chaos Engineering has deleted two Figma files and one production config. Here's how a cat made our deployment pipeline genuinely more resilient.

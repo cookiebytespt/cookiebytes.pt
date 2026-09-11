@@ -1,4 +1,5 @@
 ---
+ref: smart-irrigation-sonoff-24vac
 layout: post
 title: "Smart garden irrigation with a Sonoff 4CH Pro and Rain Bird valves"
 description: How we built a four-zone smart irrigation controller from a Sonoff 4CH Pro R3, a 24 VAC transformer and Rain Bird electrovalves — full wiring guide included, so you can replicate it.

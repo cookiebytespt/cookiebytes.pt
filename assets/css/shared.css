@@ -63,3 +63,15 @@ footer { background: var(--chip); padding: 3rem 2rem 2rem; text-align: center; }
 .footer-copy { font-size: 0.78rem; color: rgba(253,246,236,0.2); }
 
 @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Language switch (EN · PT) — lives in .nav-links; shown inside the burger menu on mobile */
+.nav-lang { display: inline-flex; align-items: center; gap: 0.1rem; padding: 0.18rem; border: 1px solid var(--border); border-radius: 2rem; font-family: 'DM Mono', monospace; }
+.nav-lang > * { display: inline-block; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; line-height: 1; padding: 0.32rem 0.55rem; border-radius: 2rem; }
+.nav-links .nav-lang a { font-size: 0.7rem; letter-spacing: 0.08em; color: var(--text-muted); }
+.nav-links .nav-lang a:hover { color: var(--cookie); background: rgba(201,123,58,0.1); }
+.nav-lang .is-current { background: var(--chip); color: var(--cream); }
+@media (max-width: 720px) {
+  .nav-links li.nav-lang-item { padding: 0.8rem 0.25rem 0.2rem; }
+  .nav-links .nav-lang a { display: inline-block; padding: 0.45rem 0.8rem; border-bottom: none; font-size: 0.8rem; }
+  .nav-lang > * { padding: 0.45rem 0.8rem; font-size: 0.8rem; }
+}
