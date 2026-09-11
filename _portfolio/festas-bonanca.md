@@ -1,4 +1,5 @@
 ---
+ref: festas-bonanca               # shared with the Portuguese version
 title: Festas de N.ª Sr.ª da Bonança
 client: Comissão de Festas · Vila Praia de Âncora, Caminha
 kind: Event website

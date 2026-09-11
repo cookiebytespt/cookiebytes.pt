@@ -1,4 +1,5 @@
 ---
+ref: home-assistant-automations
 layout: post
 title: Five Home Assistant automations we install in every smart home
 description: After dozens of installs, these are the automations that clients actually keep using six months later — plus the ones we quietly stopped recommending.

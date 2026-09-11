@@ -1,0 +1,73 @@
+{%- comment -%}
+Portfolio listing, shared by /portfolio/ and /pt/portfolio/. Shows the projects in _portfolio/ whose `lang` matches the page.
+{%- endcomment -%}
+{%- include i18n.html -%}
+{%- assign tp = t.portfolio -%}
+{%- assign projects = site.portfolio | where: "lang", lang | sort: "order" -%}
+{%- assign live = projects | where: "status", "live" | size -%}
+{%- assign wip = projects | where: "status", "wip" | size -%}
+<header class="work-hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <p class="section-label">{{ tp.label }}</p>
+    <h1>{{ tp.hero_title_html }}</h1>
+    <p class="hero-sub">{{ tp.hero_sub }}</p>
+    <div class="oven-count"><span class="dot">🔥</span><span><strong>{{ live }}</strong> {% if live == 1 %}{{ tp.shipped_one }}{% else %}{{ tp.shipped_other }}{% endif %} · <strong>{{ wip }}</strong> {{ tp.in_oven }} · <strong>0</strong> {{ tp.burnt_other }}</span></div>
+  </div>
+</header>
+
+<main class="projects">
+  <div class="container">
+  {%- for p in projects -%}
+    <article class="project{% cycle '', ' flip' %}" id="{{ p.slug | default: p.title | slugify }}">
+      <div class="project-visual">
+        <a href="{{ p.url | relative_url }}" class="visual-link" aria-label="{{ p.title }}">{% include project-mock.html project=p %}</a>
+      </div>
+      <div class="project-copy">
+        <div class="project-meta">
+          <span class="status {{ p.status }}">{% if p.status == 'live' %}{{ tp.status_live }}{% else %}{{ tp.status_wip }}{% endif %}</span>
+          <span class="year">{{ p.year }} · {{ p.kind }}</span>
+        </div>
+        <h2><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h2>
+        <p class="client">{{ p.client }}</p>
+        <p class="desc">{{ p.description }}</p>
+        {%- if p.highlights -%}
+        <ul class="highlights">
+          {%- for h in p.highlights -%}<li>{{ h }}</li>{%- endfor -%}
+        </ul>
+        {%- endif -%}
+        {%- if p.status == 'wip' and p.progress -%}
+        <div class="progress">
+          <div class="progress-head"><span>{{ tp.baking_progress }}</span><span>{{ p.progress_note }}</span></div>
+          <div class="progress-bar"><i style="--pct:{{ p.progress }}%"></i></div>
+        </div>
+        {%- endif -%}
+        {%- if p.stack -%}
+        <p class="ingredients-label">{{ tp.ingredients }}</p>
+        <div class="ingredients">{% for s in p.stack %}<span>{{ s }}</span>{% endfor %}</div>
+        {%- endif -%}
+        <div class="project-actions">
+          {%- if p.site_url -%}
+          <a href="{{ p.site_url }}" target="_blank" rel="noopener" class="btn-primary">{{ tp.visit_site }}</a>
+          <a href="{{ p.url | relative_url }}" class="btn-secondary">{{ tp.case_study }}</a>
+          {%- else -%}
+          <a href="{{ p.url | relative_url }}" class="btn-secondary">{{ tp.read_about }}</a>
+          <a href="{{ home_url }}#contact" class="btn-ghost">{{ tp.launching_soon }} →</a>
+          {%- endif -%}
+          {%- if p.tagline -%}<span class="btn-ghost">{{ p.tagline }}</span>{%- endif -%}
+        </div>
+      </div>
+    </article>
+  {%- endfor -%}
+  </div>
+</main>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-mini">
+      <h2>{{ tp.cta_title }}</h2>
+      <p>{{ tp.cta_text }}</p>
+      <a href="{{ home_url }}#contact" class="btn-primary">{{ tp.cta_button }}</a>
+    </div>
+  </div>
+</section>

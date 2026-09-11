@@ -1,0 +1,121 @@
+# English UI strings (default language, served at the site root)
+code: en
+html_lang: en
+name: English
+short: EN
+prefix: ""                 # URL prefix for this language ("" = root)
+switch_label: Read in English
+
+nav:
+  services: Services
+  about: About
+  work: Work
+  blog: Blog
+  contact: Contact
+  get_in_touch: Get in touch
+  open_menu: Open menu
+
+footer:
+  tagline: "// software with warmth"
+  copy: Cookie is a good girl. Billy is trying his best. Rocky, please get off the keyboard. Peggy knows.
+
+home:
+  hero_title_html: Software that's <em>baked</em><br>to perfection.
+  hero_sub: CookieBytes builds digital products with warmth, precision, and a little love — just like the best homemade cookies. Sweet results, zero crumbs.
+  start_project: Start a project
+  meet_team: Meet the team →
+  dog_strip_html: Powered by code, caffeine, and <strong>4 animals</strong> who run the place
+  services_label: "// what we bake"
+  services_title: Full-stack flavours for every appetite.
+  services_desc: From crispy MVPs to layered enterprise platforms — we craft software that feels exactly right.
+  services:
+    - { icon: "📱", bg: "#D4EDEA", title: "Mobile Apps", text: "Native-quality mobile experiences for iOS and Android. Smooth interactions, offline-first, and ready for scale." }
+    - { icon: "🔧", bg: "#FDF0E0", title: "API & Backend", text: "Robust, well-documented APIs and backend systems. Built for reliability, security, and the kind of uptime that lets you sleep at night." }
+    - { icon: "🎨", bg: "#FFF4E0", title: "Product Design", text: "UX and UI with personality. We design interfaces that feel human — intuitive, warm, and worth coming back to." }
+    - { icon: "🚀", bg: "#E8F5EE", title: "DevOps & Scale", text: "CI/CD, containerization, and cloud architecture. We get your code shipped cleanly and keep it running at any load." }
+    - { icon: "🏗️", bg: "#EEF2FF", title: "Infrastructure", text: "From cloud provisioning to on-premise setups, we design and manage infrastructure that's resilient, cost-efficient, and built to grow with you." }
+    - { icon: "🌐", bg: "#FDF4FF", title: "Network", text: "Secure, high-performance network design and management. We make sure your systems talk to each other reliably — and that the wrong ones don't." }
+    - { icon: "🏠", bg: "#FFEEDD", title: "Home Automation", text: "Smart-home installs, IoT integrations, and Home Assistant setups. We make your space respond to you — lights, sensors, routines, all in sync." }
+  about_label: "// our story"
+  about_title: Named after animals. Built for the long run.
+  about_p1: "CookieBytes started with two things: a love of clean code and a dog named Cookie. The cookies? They represent warmth, care, and the satisfaction of something made just right. Bytes? That's all the software magic happening behind the scenes."
+  about_p2: Then Billy joined, Rocky knocked things off shelves, and Peggy started judging everyone's code reviews. We're a small, focused studio — no bloat, no fluff, and four animals who definitely run the place.
+  crew_divider: 🐾 The crew
+  crew:
+    - { key: cookie, emoji: "🐕", name: "Cookie", text: "The original. Calm, dependable, and deeply invested in every product decision. Has never missed a standup.", role: "Chief Happiness Officer" }
+    - { key: billy, emoji: "🐶", name: "Billy", text: "Joined like a wrecking ball and hasn't slowed down. Responsible for 3 pivots, 2 rebrands, and one keyboard that didn't survive.", role: "Chief Disruption Officer" }
+    - { key: rocky, emoji: "🐱", name: "Rocky", text: "Treats every sprint like a playground. Has personally deleted two Figma files, one production config, and half a sandwich.", role: "Head of Chaos Engineering" }
+    - { key: peggy, emoji: "🐈", name: "Peggy", text: "Watches. Thinks. Judges silently. Her feedback is rare but devastating. The team has learned to take it seriously.", role: "Director of Silent Reviews" }
+  stat_label: Daily treats — split evenly, negotiated daily, disputed always
+  contact_title: Ready to bake something great?
+  contact_text: Tell us about your project. We'll bring the butter, you bring the idea.
+  form:
+    subject: New CookieBytes contact form submission 🍪
+    name: Name
+    name_placeholder: Your name
+    email: Email
+    email_placeholder: your@email.com
+    message: Message
+    message_placeholder: Tell us about your project…
+    captcha: I'm not a robot 🤖
+    verifying: Verifying…
+    confirmed: Human confirmed 🐾
+    captcha_first: Please complete the captcha first.
+    submit: Send message
+    sending: Sending…
+    error: Something went wrong. Please try again or email us directly.
+    network_error: Network error. Please try again or email us directly.
+    success_title: Message received!
+    success_text: Cookie is already wagging. We'll be in touch very soon.
+  email_divider: or just send us an email directly
+
+portfolio:
+  title: Work
+  description: Selected work by CookieBytes — websites, APIs and digital products baked with care.
+  label: "// our work"
+  hero_title_html: Fresh out of <em>the oven.</em>
+  hero_sub: "A few things we've baked recently — and what's still rising. Every project gets the same recipe: clean code, honest design, and a crew of four animals supervising from the couch."
+  shipped_one: shipped
+  shipped_other: shipped
+  in_oven: in the oven
+  burnt_one: burnt
+  burnt_other: burnt
+  status_live: Live
+  status_wip: In the oven
+  baking_progress: Baking progress
+  ingredients: Ingredients
+  visit_site: Visit the site ↗
+  case_study: Case study
+  read_about: Read about it
+  launching_soon: Launching soon — ask us about it
+  cta_title: Want to be the next one on this page?
+  cta_text: Tell us what you're building. We'll preheat the oven.
+  cta_button: Start a project
+  back: ← Back to our work
+  baked_by: Baked by CookieBytes
+  author_before: Want something like this?
+  author_link: Tell us about your project
+  author_after: — we'll preheat the oven.
+  wip_tape: Work in progress
+  staging: staging
+  homepage: homepage
+  mock_home_label: Homepage of the website
+  mock_wip_label: Preview of the new online store, still under construction
+
+blog:
+  title: The Cookie Jar
+  description: Notes from the oven — stories, tech deep-dives, and crew chaos from the CookieBytes studio.
+  label: "// the cookie jar"
+  hero_title_html: Fresh from <em>the oven</em>.
+  hero_sub: Notes on software, smart homes, and studio life — written by humans, supervised by four animals.
+  read_post: Read post →
+  subscribe_title: Want new posts in your inbox?
+  subscribe_text: No spam, no crumbs. Just an email when something fresh comes out of the oven.
+  subscribe_button: Subscribe by email
+  subscribe_subject: Subscribe me to the Cookie Jar 🍪
+  back: ← Back to the Cookie Jar
+  team: The CookieBytes team
+  categories:
+    studio: studio
+    tech: tech
+    crew: crew

@@ -3,15 +3,16 @@ Browser-frame preview for a portfolio project.
 Usage: {% include project-mock.html project=p %}
 Uses p.screenshot if set; otherwise draws a CSS mock chosen by p.mock (bonanca | brindigrafica).
 {%- endcomment -%}
+{%- include i18n.html -%}
 {%- assign p = include.project -%}
 <div class="browser">
-  {% if p.status == 'wip' %}<div class="wip-tape">Work in progress</div>{% endif %}
-  <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">{% if p.site_url %}{{ p.site_url | remove: 'https://' | remove: 'http://' | remove: '/' }}{% else %}{{ p.title | downcase | replace: ' ', '' }} · staging{% endif %}</span></div>
+  {% if p.status == 'wip' %}<div class="wip-tape">{{ t.portfolio.wip_tape }}</div>{% endif %}
+  <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">{% if p.site_url %}{{ p.site_url | remove: 'https://' | remove: 'http://' | remove: '/' }}{% else %}{{ p.title | downcase | replace: ' ', '' }} · {{ t.portfolio.staging }}{% endif %}</span></div>
   <div class="screen">
   {%- if p.screenshot -%}
-    <img class="shot" src="{{ p.screenshot | relative_url }}" alt="{{ p.title }} — homepage" loading="lazy">
+    <img class="shot" src="{{ p.screenshot | relative_url }}" alt="{{ p.title }} — {{ t.portfolio.homepage }}" loading="lazy">
   {%- elsif p.mock == 'bonanca' -%}
-    <div class="mock mock-bon" role="img" aria-label="Homepage of the {{ p.title }} website">
+    <div class="mock mock-bon" role="img" aria-label="{{ t.portfolio.mock_home_label }} · {{ p.title }}">
       <div class="m-nav"><b>⚓ N.ª Sr.ª da Bonança '26</b><span><i></i><i></i><i></i><i class="pill"></i></span></div>
       <div class="gull g1"></div><div class="gull g2"></div><div class="gull g3"></div>
       <div class="m-body">
@@ -26,7 +27,7 @@ Uses p.screenshot if set; otherwise draws a CSS mock chosen by p.mock (bonanca |
       <div class="m-cta">PROGRAMA</div>
     </div>
   {%- elsif p.mock == 'brindigrafica' -%}
-    <div class="mock mock-bri" role="img" aria-label="Preview of the new {{ p.title }} online store, still under construction">
+    <div class="mock mock-bri" role="img" aria-label="{{ t.portfolio.mock_wip_label }} · {{ p.title }}">
       <div class="m-nav"><b>Brindi<i>gráfica</i></b><span><i></i><i></i><i></i><i class="cart"></i></span></div>
       <div class="m-hero"><h4><small>PRODUTOS PROMOCIONAIS</small>A sua marca em tudo o que se possa imprimir.</h4></div>
       <div class="m-grid">

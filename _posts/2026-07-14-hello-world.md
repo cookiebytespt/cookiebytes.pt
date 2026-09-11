@@ -1,4 +1,5 @@
 ---
+ref: hello-world
 layout: post
 title: Hello, world — the oven is officially open
 description: Why a small software studio decided to start writing things down — what we're building, what we've learned, and why the blog is named after a cookie jar.

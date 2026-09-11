@@ -1,4 +1,5 @@
 ---
+ref: brindigrafica               # shared with the Portuguese version
 title: Brindigráfica
 client: Promotional products · Portugal
 kind: Website, store & API
