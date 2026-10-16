@@ -1,7 +1,7 @@
 {%- comment -%}
 Browser-frame preview for a portfolio project.
 Usage: {% include project-mock.html project=p %}
-Uses p.screenshot if set; otherwise draws a CSS mock chosen by p.mock (bonanca | brindigrafica).
+Uses p.screenshot if set; otherwise draws a CSS mock chosen by p.mock (bonanca | brindigrafica | sobremesas).
 {%- endcomment -%}
 {%- include i18n.html -%}
 {%- assign p = include.project -%}
@@ -27,15 +27,26 @@ Uses p.screenshot if set; otherwise draws a CSS mock chosen by p.mock (bonanca |
       <div class="m-cta">PROGRAMA</div>
     </div>
   {%- elsif p.mock == 'brindigrafica' -%}
-    <div class="mock mock-bri" role="img" aria-label="{{ t.portfolio.mock_wip_label }} · {{ p.title }}">
+    <div class="mock mock-bri" role="img" aria-label="{% if p.status == 'wip' %}{{ t.portfolio.mock_wip_label }}{% else %}{{ t.portfolio.mock_home_label }}{% endif %} · {{ p.title }}">
       <div class="m-nav"><b>Brindi<i>gráfica</i></b><span><i></i><i></i><i></i><i class="cart"></i></span></div>
       <div class="m-hero"><h4><small>PRODUTOS PROMOCIONAIS</small>A sua marca em tudo o que se possa imprimir.</h4></div>
       <div class="m-grid">
         <div class="m-card"><div class="thumb" style="background:#FDECEF">👕</div><i></i><i class="short"></i></div>
         <div class="m-card"><div class="thumb" style="background:#EEF2FF">🧢</div><i></i><i class="short"></i></div>
         <div class="m-card"><div class="thumb" style="background:#E8F5EE">🖊️</div><i></i><i class="short"></i></div>
-        <div class="m-card skeleton"><div class="thumb"></div><i></i><i style="width:50%"></i></div>
+        {% if p.status == 'wip' %}<div class="m-card skeleton"><div class="thumb"></div><i></i><i style="width:50%"></i></div>{% else %}<div class="m-card"><div class="thumb" style="background:#FFF4E0">👜</div><i></i><i class="short"></i></div>{% endif %}
       </div>
+    </div>
+  {%- elsif p.mock == 'sobremesas' -%}
+    <div class="mock mock-sob" role="img" aria-label="{{ t.portfolio.mock_home_label }} · {{ p.title }}">
+      <div class="m-nav"><b>Sobremesas <i>&amp;</i> Companhia</b><span><i></i><i></i><i></i><i class="pill"></i></span></div>
+      <div class="m-hero">
+        <h4><small>BOLOS · DOCES · CATERING</small>Doces para os seus momentos.</h4>
+        <div class="m-cake">🎂</div>
+      </div>
+      <div class="m-scallop"></div>
+      <div class="m-chips"><i class="on">Casamentos</i><i>Batizados</i><i>Aniversários</i></div>
+      <div class="m-grid"><div style="background:#F6DDE3">🍰</div><div style="background:#DCEAF4">🍪</div><div style="background:#EFE3D6">🧁</div><div style="background:#F6DDE3">🍓</div></div>
     </div>
   {%- else -%}
     <div class="mock mock-generic" role="img" aria-label="{{ p.title }}"><span>{{ p.emoji | default: '🍪' }}</span></div>
