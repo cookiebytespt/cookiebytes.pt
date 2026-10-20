@@ -8,6 +8,7 @@ status: wip             # live | wip
 order: 3
 description: A four-language landing page for a two-person cake and catering kitchen, with a quote form that lands straight in WhatsApp — and, behind it, a platform to run the business, now in the oven.
 site_url: https://sobremesasecompanhia.pt/
+progress: 20            # % shown on the "baking progress" bar (wip only)
 progress_note: Landing page live · platform in development
 mock: sobremesas
 highlights:

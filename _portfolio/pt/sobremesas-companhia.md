@@ -8,6 +8,7 @@ status: wip             # live | wip
 order: 3
 description: Uma landing page em quatro línguas para uma pequena cozinha de bolos e catering, com um formulário de orçamento que vai direto para o WhatsApp — e, por trás, uma plataforma para gerir o negócio, já no forno.
 site_url: https://sobremesasecompanhia.pt/
+progress: 20            # % shown on the "baking progress" bar (wip only)
 progress_note: Landing page no ar · plataforma em desenvolvimento
 mock: sobremesas
 highlights:
